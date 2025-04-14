@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const WelcomePage(),
-    );
-  }
-}
+import 'login_page.dart';
+import 'register_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -67,6 +53,10 @@ class WelcomePage extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             // Navigasi ke halaman login
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const LoginPage()),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
@@ -94,6 +84,10 @@ class WelcomePage extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             // Navigasi ke halaman register
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RegisterPage()),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFF88D66C),

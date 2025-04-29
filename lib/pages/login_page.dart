@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
-  @override 
+  @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
@@ -25,7 +26,6 @@ class _LoginPageState extends State<LoginPage> {
               fit: BoxFit.cover,
             ),
           ),
-
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(24.0),
@@ -67,7 +67,9 @@ class _LoginPageState extends State<LoginPage> {
                         });
                       },
                       child: Icon(
-                        _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                        _obscurePassword
+                            ? Icons.visibility_off
+                            : Icons.visibility,
                         color: CupertinoColors.systemGrey,
                       ),
                     ),
@@ -79,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 30),
                   CupertinoButton(
-                    color: const Color(0xFF4CAF50), 
+                    color: const Color(0xFF4CAF50),
                     borderRadius: BorderRadius.circular(12),
                     child: const Text(
                       "Login",
@@ -90,13 +92,17 @@ class _LoginPageState extends State<LoginPage> {
                       final password = passwordController.text;
                       print("Email: $email");
                       print("Password: $password");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
                     },
                   ),
                   const SizedBox(height: 20),
                   CupertinoButton(
                     child: const Text("Don't have an account? Sign up"),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),
